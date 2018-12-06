@@ -3,14 +3,14 @@ const fs = require("fs");
 
 function saveSites(sites) {
   fs.writeFileSync(
-    path.join(__dirname, "../../../data/sites.json"),
+    path.join(__dirname, "../data/sites.json"),
     JSON.stringify(sites)
   );
 }
 function fetchSites() {
   try {
     return JSON.parse(
-      fs.readFileSync(path.join(__dirname, "../../../data/sites.json"))
+      fs.readFileSync(path.join(__dirname, "../data/sites.json"))
     );
   } catch {
     return [];
@@ -34,3 +34,6 @@ module.exports = {
   addSite,
   test
 };
+
+///app/data/sites.json
+// __dirname, "../../../data/sites.json")
