@@ -2,16 +2,11 @@ const path = require("path");
 const fs = require("fs");
 
 function saveSites(sites) {
-  fs.writeFileSync(
-    path.join(__dirname, "../data/sites.json"),
-    JSON.stringify(sites)
-  );
+  fs.writeFileSync(path.join("data/sites.json"), JSON.stringify(sites));
 }
 function fetchSites() {
   try {
-    return JSON.parse(
-      fs.readFileSync(path.join(__dirname, "../data/sites.json"))
-    );
+    return JSON.parse(fs.readFileSync(path.join("data/sites.json")));
   } catch {
     return [];
   }
