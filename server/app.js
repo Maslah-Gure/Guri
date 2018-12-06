@@ -12,6 +12,7 @@ const sites = require(path.join(__dirname, "/functions/sites/siteData.js"));
 app.set("view engine", "hbs");
 //midleware
 app.use(express.static(path.join(__dirname, "../public")));
+app.use(express.static(path.join(__dirname, "../data")));
 io.on("connection", socket => {
   console.log("client connected");
   let allSites = sites.fetchSites();
