@@ -2,16 +2,11 @@ const path = require("path");
 const fs = require("fs");
 
 function saveSites(sites) {
-  fs.writeFileSync(
-    path.join(__dirname, "../../../data/sites.json"),
-    JSON.stringify(sites)
-  );
+  fs.writeFileSync(path.join("./sites.json"), JSON.stringify(sites));
 }
 function fetchSites() {
   try {
-    return JSON.parse(
-      fs.readFileSync(path.join(__dirname, "../../../data/sites.json"))
-    );
+    return JSON.parse(fs.readFileSync(path.join("./sites.json")));
   } catch {
     return [];
   }
@@ -25,14 +20,10 @@ function addSite(site) {
     return site;
   } else return false;
 }
-function test(a, b) {
-  return a + b;
-}
 module.exports = {
   saveSites,
   fetchSites,
-  addSite,
-  test
+  addSite
 };
 
 ///app/data/sites.json
