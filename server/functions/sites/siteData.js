@@ -20,10 +20,21 @@ function addSite(site) {
     return site;
   } else return false;
 }
+function removeSite(site, callback) {
+  sites = fetchSites();
+  sites.forEach((element, index) => {
+    if (element.webName === site.webName) {
+      sites.splice(index, 1);
+      saveSites(sites);
+      callback(true);
+    }
+  });
+}
 module.exports = {
   saveSites,
   fetchSites,
-  addSite
+  addSite,
+  removeSite
 };
 
 ///app/data/sites.json

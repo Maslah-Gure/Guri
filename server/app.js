@@ -31,6 +31,15 @@ io.on("connection", socket => {
       });
     } else console.log("site not added");
   });
+  //Delete Site
+  socket.on("deleteSite", site => {
+    let callback = removed => {
+      if (removed) {
+        socket.emit("siteRemoved");
+      }
+    };
+    sites.removeSite(site, callback);
+  });
   socket.on("disconnect", () => {
     console.log("a client disconnected");
   });

@@ -1,0 +1,7 @@
+body {
+  background: grey;
+}
+.weblink {
+  display: grid;
+  grid-template-columns: 85% 15%;
+}
